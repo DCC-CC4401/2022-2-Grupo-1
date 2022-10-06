@@ -17,4 +17,4 @@ class HomepageView(generic.TemplateView):
             A rendered view with the homepage template.
         """
 
-        return shortcuts.render(request, "homepage/index.html")
+        return shortcuts.render(request, "index.html")
