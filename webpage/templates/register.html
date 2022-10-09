@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}Login{% endblock %}
+
+{% block specific_css_files %}
+<link rel="stylesheet" href="{% static 'styles/homepage.css' %}">
+{% endblock %}
+
+{% block page_content %}
+<div class="row justify-center text-center">
+    <div class="col text-center">
+        <h1>Registro de usuario</h1>
+        <form method="post">
+          {% csrf_token %}
+          <label>Nombre de usuario:</label>
+          {{form.username}}
+          <label>Contraseña:</label>
+          {{form.password1}}
+          <label>Confirma la contraseña:</label>
+          {{form.password2}}
+          <br>
+          <input class="button" type="submit" value="Register">
+        </form>
+        <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia sesión</a></p>
+    </div>
+</div
+{% endblock %}
+
+{% block scripts%}
+{% endblock %}

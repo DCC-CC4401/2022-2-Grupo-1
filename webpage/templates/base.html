@@ -18,14 +18,43 @@
   <title>{% block page_title %}{% endblock %} - Ghoti</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Escalar segun dispositivo -->
   <meta charset="UTF-8"> <!-- Usar charset UTF-8 -->
-  
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  
+
   <link rel="stylesheet" href="{% static 'styles/style.css' %}">
   <link rel="stylesheet" href="{% static 'styles/navbar/style.css' %}">
   <link rel="stylesheet" href="{% static 'styles/footer/style.css' %}">
-  
+
   {% block specific_css_files %}{% endblock %}
+
+  <style media="screen">
+
+    label {
+        padding-top: 10px;
+        padding-bottom: 5px;
+        display: block;
+    }
+    input[type=text],
+    input[type=password],
+    textarea {
+        border: 1px solid #DD33FF;
+        border-radius: 5px;
+        padding: 10px;
+        width: 20%;
+    }
+    .button {
+        border: 1px solid #DD33FF;
+        background-color: #FAFAFA;
+        color: #DD33FF;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        margin-top : 15px;
+        margin-bottom: 15px;
+    }
+  </style>
 </head>
 
 <body>
@@ -35,7 +64,7 @@
   <main class="main container">
     {% block page_content %}{% endblock %}
   </main>
-  
+
   {% block scripts %}{% endblock %}
 </body>
 
