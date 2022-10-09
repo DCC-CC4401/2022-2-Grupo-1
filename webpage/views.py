@@ -30,6 +30,7 @@ class HomepageView(generic.TemplateView):
         }
         return shortcuts.render(request, "index.html", context=context)
 
+
 class LoginView(LoginView):
     template_name = 'login.html'
     fields = '__all__'
@@ -37,6 +38,7 @@ class LoginView(LoginView):
 
     def get_success_url(self):
         return reverse_lazy('homepage')
+
 
 class RegisterView(FormView):
     template_name = 'register.html'
