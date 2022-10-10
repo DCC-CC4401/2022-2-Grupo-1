@@ -6,6 +6,7 @@ from django.views import generic
 
 from . import models
 
+
 class LecturaRecetaView(generic.TemplateView):
     """
     Recipe Reading View class.
@@ -13,6 +14,7 @@ class LecturaRecetaView(generic.TemplateView):
     Handles the view's requests.
     """
 
+    # noinspection PyMethodOverriding
     def get(self, request, id_recipe):
         """
         Manage a get request.
@@ -35,17 +37,18 @@ class LecturaRecetaView(generic.TemplateView):
 
 class RecetasView(generic.TemplateView):
     """
-    Recipes Dispay View class.
+    Recipes Display View class.
     
     Handles the view's requests.
     """
 
+    # noinspection PyMethodOverriding
     def get(self, request):
         """
         Manage a get request.
         
         Returns:
-            A rendered view with the recipes dispay.
+            A rendered view with the recipes display.
         """
 
         recipes_list = models.Recipe.objects.all()

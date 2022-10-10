@@ -15,6 +15,7 @@ class HomepageView(generic.TemplateView):
     Handles the homepage requests.
     """
 
+    # noinspection PyMethodOverriding
     def get(self, request):
         """
         Manage a get request.
