@@ -58,7 +58,10 @@ ROOT_URLCONF = 'ghoti.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'webpage/templates')],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'webpage/templates'),
+            os.path.join(BASE_DIR, 'recipes/templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
