@@ -23,7 +23,6 @@
 
   <link rel="stylesheet" href="{% static 'styles/style.css' %}">
   <link rel="stylesheet" href="{% static 'styles/navbar.css' %}">
-  <link rel="stylesheet" href="{% static 'styles/footer.css' %}">
 
   {% block specific_css_files %}{% endblock %}
 </head>
@@ -32,7 +31,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-left">
     <a class="navbar-brand col-1" href="/">Ghoti</a>
     <div class="navbar-links col-3" id="navbarText">
-      <ul class="navbar-nav d-flex justify-content-around">
+      <ul class="navbar-nav d-flex justify-content-start">
         <li class="nav-item">
           <a class="nav-link" href="/">Home</a>
         </li>
@@ -41,15 +40,16 @@
         </li>
       </ul>
     </div>
-    <div class="navbar-buttons justify-content-around d-flex col-3 offset-5">
+    <div class="navbar-buttons justify-content-end d-flex col-3 offset-5">
       {% if request.user.is_authenticated %}
+      <span class="saludo">Hola, {{request.user.username|title}}</span>
+      {% endif %}
+      {% if request.user.is_authenticated %}
+      <a class="btn btn-success" href="/recipes/new">Agregar receta</a>
       <a class="btn btn-danger" href="/logout">Salir</a>
       {% else %}
-      <a class="btn btn-primary" href="/login">Ingresar</a>
-      {% endif %}
-      <a class="btn btn-secondary" href="/register">Registrarse</a>
-      {% if request.user.is_authenticated %}
-        Hola, {{request.user.username|title}}
+      <a class="btn btn-light" href="/login">Ingresar</a>
+      <a class="btn btn-primary" href="/register">Registrarse</a>
       {% endif %}
     </div>
   </nav>
