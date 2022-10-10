@@ -1,6 +1,7 @@
 from django.db import models
-
 # Create your models here.
+from django.utils import timezone
+
 from webpage.models import User
 
 
@@ -11,7 +12,7 @@ class Recipe(models.Model):
     # Llave foránea del usuario que escribe la receta
     user: User = models.ForeignKey(
         User,
-        on_delete=models.SET_NULL,
+        on_delete=models.CASCADE,
         null=True,
     )
     # Nombre de la receta
@@ -24,6 +25,10 @@ class Recipe(models.Model):
     image_path = models.CharField(
         max_length=255,
         default="default.svg"
+    )
+    # Fecha de la publicación
+    publish_date = models.DateTimeField(
+        default=timezone.localtime,
     )
 
     def __str__(self):
