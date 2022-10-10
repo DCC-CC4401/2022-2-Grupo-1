@@ -1,0 +1,24 @@
+.recipe-img {
+    overflow: hidden;
+    text-align: center;
+    height: 200px;
+    width: 200px;
+    position: relative;
+}
+
+.recipe-img img {
+    max-height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+}
+
+.recipe-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-buttons button {
+    margin: .5vw 0;
+    text-align: left;
+}

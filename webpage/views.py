@@ -30,28 +30,6 @@ class HomepageView(generic.TemplateView):
         return shortcuts.render(request, "index.html", context=view_context)
 
 
-class LecturaRecetaView(generic.TemplateView):
-    """
-    Recipe Reading View class.
-    
-    Handles the view's requests.
-    """
-
-    def get(self, request, id_receta):
-        """
-        Manage a get request.
-        
-        Returns:
-            A rendered view with the recipe template.
-        """
-
-        view_context = {
-
-        }
-
-        return shortcuts.render(request, "recipe.html", context=view_context)
-
-
 class LoginView(LoginView):
     template_name = 'login.html'
     fields = '__all__'
