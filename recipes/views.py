@@ -1,13 +1,11 @@
 from django import shortcuts
-from django.contrib.auth import login
-from django.contrib.auth.views import LoginView
-from django.urls import reverse_lazy
-from django.views import generic
+from django.http import HttpResponseRedirect
 from django.utils.datastructures import MultiValueDictKeyError
-from django.http import HttpResponseForbidden, HttpResponseRedirect
+from django.views import generic
 
-from . import models
 from . import forms
+from . import models
+
 
 class LecturaRecetaView(generic.TemplateView):
     """
@@ -16,6 +14,7 @@ class LecturaRecetaView(generic.TemplateView):
     Handles the view's requests.
     """
 
+    # noinspection PyMethodOverriding
     def get(self, request, id_recipe):
         """
         Manage a get request.
@@ -41,17 +40,18 @@ class LecturaRecetaView(generic.TemplateView):
 
 class RecetasView(generic.TemplateView):
     """
-    Recipes Dispay View class.
+    Recipes Display View class.
     
     Handles the view's requests.
     """
 
+    # noinspection PyMethodOverriding
     def get(self, request):
         """
         Manage a get request.
         
         Returns:
-            A rendered view with the recipes dispay.
+            A rendered view with the recipes display.
         """
 
         recipes_list = models.Recipe.objects.all()
@@ -62,18 +62,19 @@ class RecetasView(generic.TemplateView):
 
         return shortcuts.render(request, "display.html", context=view_context)
 
-        
+
 class NewRecipeView(generic.TemplateView):
     """
     New Recipe View class.
-    
+
     Handles the view's requests.
     """
 
+    # noinspection PyMethodOverriding
     def get(self, request):
         """
         Manage a get request.
-        
+
         Returns:
             A rendered view with the new recipe form.
         """
@@ -86,17 +87,16 @@ class NewRecipeView(generic.TemplateView):
 
         return shortcuts.render(request, "new.html", context=view_context)
 
-
     def post(self, request):
         """
         Manage the form submit.
-        
+
         Returns:
             A rendered view with the created recipe.
         """
 
         recipe_data = forms.NewRecipeForm(request.POST, request.FILES)
-        
+
         if recipe_data.is_valid():
             try:
                 img = request.FILES["image"]
@@ -110,7 +110,8 @@ class NewRecipeView(generic.TemplateView):
                 image_path = models.Recipe._meta.get_field("image_path").get_default()
 
             recipe_data = recipe_data.cleaned_data
-            recipe = models.Recipe(user=request.user, name=recipe_data["name"], ingredients=recipe_data["ingredients"], instructions=recipe_data["instructions"], image_path=image_path)
+            recipe = models.Recipe(user=request.user, name=recipe_data["name"], ingredients=recipe_data["ingredients"],
+                                   instructions=recipe_data["instructions"], image_path=image_path)
             recipe.save()
 
             return HttpResponseRedirect(f"/recipes/{recipe.id}")

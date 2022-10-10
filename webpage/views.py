@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic.edit import FormView
 
-from webpage.forms import AdapterUserCreationForm
+from webpage.forms import CustomUserCreationForm
 
 
 class HomepageView(generic.TemplateView):
@@ -15,6 +15,7 @@ class HomepageView(generic.TemplateView):
     Handles the homepage requests.
     """
 
+    # noinspection PyMethodOverriding
     def get(self, request):
         """
         Manage a get request.
@@ -30,7 +31,7 @@ class HomepageView(generic.TemplateView):
         return shortcuts.render(request, "index.html", context=view_context)
 
 
-class LoginView(LoginView):
+class CustomLoginView(LoginView):
     template_name = 'login.html'
     fields = '__all__'
     redirect_authenticated_user = True
@@ -41,7 +42,7 @@ class LoginView(LoginView):
 
 class RegisterView(FormView):
     template_name = 'register.html'
-    form_class = AdapterUserCreationForm
+    form_class = CustomUserCreationForm
     redirect_authenticated_user = True
     success_url = reverse_lazy('homepage')
 
