@@ -37,7 +37,7 @@ class LecturaRecetaView(generic.TemplateView):
     Handles the view's requests.
     """
 
-    def get(self, request):
+    def get(self, request, id_receta):
         """
         Manage a get request.
         
