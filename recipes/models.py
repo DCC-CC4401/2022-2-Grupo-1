@@ -23,8 +23,7 @@ class Recipe(models.Model):
     # Path de la imagen linkeada
     image_path = models.CharField(
         max_length=255,
-        null=True,
-        blank=True,
+        default="default.svg"
     )
 
     def __str__(self):

@@ -2,3 +2,19 @@
     padding: .5vw 3vw;
     margin-bottom: 4vw;
 }
+
+.navbar-nav .nav-item {
+    margin-right: 2vw;
+}
+
+.navbar-buttons {
+    align-items: center;
+}
+
+.navbar-buttons * {
+    margin-left: 1vw;
+}
+
+.navbar .saludo {
+    height: min-content;
+}
