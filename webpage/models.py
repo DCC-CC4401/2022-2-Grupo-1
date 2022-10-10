@@ -2,6 +2,10 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
+    """
+    Personalized User.
+    """
+
     def __str__(self):
         return (f"User("
                 f"username={self.username}, "

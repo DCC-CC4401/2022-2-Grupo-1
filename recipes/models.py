@@ -5,6 +5,9 @@ from webpage.models import User
 
 
 class Recipe(models.Model):
+    """
+    Recipe class model for the Users' recipes.
+    """
     # Llave foránea del usuario que escribe la receta
     user_id = models.ForeignKey(
         User,
