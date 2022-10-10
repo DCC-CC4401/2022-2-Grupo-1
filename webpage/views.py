@@ -1,12 +1,11 @@
-from django.shortcuts import render
-from django.views import generic
 from django import shortcuts
-
-from django.urls import reverse_lazy
-from django.contrib.auth.views import LoginView
-from django.views.generic.edit import FormView
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.contrib.auth.views import LoginView
+from django.urls import reverse_lazy
+from django.views import generic
+from django.views.generic.edit import FormView
+
+from webpage.forms import AdapterUserCreationForm
 
 
 class HomepageView(generic.TemplateView):
@@ -64,7 +63,7 @@ class LoginView(LoginView):
 
 class RegisterView(FormView):
     template_name = 'register.html'
-    form_class = UserCreationForm
+    form_class = AdapterUserCreationForm
     redirect_authenticated_user = True
     success_url = reverse_lazy('homepage')
 
