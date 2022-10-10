@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}Inicio{% endblock %}
+
+{% block specific_css_files %}
+<link rel="stylesheet" href="{% static 'styles/edit.css' %}">
+{% endblock %}
+
+{% block page_content %}
+<div class="row recipe-header justify-content-center">
+    <div class="col-3 recipe-img">
+        <img src="{% static 'img/'|add:recipe.image_path %}"/>
+    </div>
+    <div class="recipe-head col-3">
+        <h3>{{ recipe.name }}</h3>
+        <p>Por: {{ recipe.user.username }}</p>
+        <div class="recipe-buttons">
+            {% if request.user.is_authenticated %}
+            <button class="btn btn-success">Agregar a favoritos</button>
+            {% endif %}
+            {% if request.user == recipe.user %}
+            <button class="btn btn-primary">Editar</button>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+<div class="row recipe-ingredients">
+    <h1>Ingredientes</h1>
+    <p>{{ recipe.ingredients|linebreaks }}</p>
+</div>
+<div class="row recipe-instructions">
+    <h1>Instrucciones</h1>
+    <p>{{ recipe.instructions|linebreaks }}</p>
+</div>
+{% endblock %}
+
+{% block scripts%}
+{% endblock %}

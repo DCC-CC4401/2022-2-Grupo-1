@@ -48,8 +48,10 @@ class RecetasView(generic.TemplateView):
             A rendered view with the recipes dispay.
         """
 
-        view_context = {
+        recipes_list = models.Recipe.objects.all()
 
+        view_context = {
+            "recipes": recipes_list
         }
 
         return shortcuts.render(request, "recipe.html", context=view_context)
