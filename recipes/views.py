@@ -60,7 +60,7 @@ class RecetasView(generic.TemplateView):
             "recipes": recipes_list
         }
 
-        return shortcuts.render(request, "recipe.html", context=view_context)
+        return shortcuts.render(request, "display.html", context=view_context)
 
         
 class NewRecipeView(generic.TemplateView):
@@ -96,13 +96,13 @@ class NewRecipeView(generic.TemplateView):
         """
 
         recipe_data = forms.NewRecipeForm(request.POST, request.FILES)
-
+        
         if recipe_data.is_valid():
             try:
                 img = request.FILES["image"]
                 image_path = img.name
 
-                with open(f"recipes/static/img/uploads/{img.name}", "wb+") as destination:
+                with open(f"recipes/static/img/{img.name}", "wb+") as destination:
                     for chunk in img.chunks():
                         destination.write(chunk)
 
