@@ -46,7 +46,7 @@
 
 {% for recipe in recipes %}
 <div class="container-fluid">
-  <img class="img-responsive" src={{recipe.image.url}} alt="Chania" width="160" height="160"> 
+  <img class="img-responsive" src="{% static 'img/'|add:recipe.image_path %}" alt="Chania" width="160" height="160"> 
   <br>
   <h4>{{recipe.name}}</h4>
   <p>Author:{{recipe.user.username}}</p>
