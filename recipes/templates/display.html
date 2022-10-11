@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html>
+<!-- <!DOCTYPE html>
+<html> -->
+
+<!-- 
 <head>
 <style>
 
@@ -19,6 +21,20 @@
 }
 </style>
 </head>
+-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}Agregar receta{% endblock %}
+
+{% block specific_css_files %}
+<link rel="stylesheet" href="{% static 'styles/new.css' %}">
+{% endblock %}
+
+
+
+{% block page_content %}
+
 <body>
 
 <h2>Lista Recetas</h2>
@@ -29,16 +45,21 @@
 <div class="grid-container"> 
 
 {% for recipe in recipes %}
-<!-- <div class="item1">1</div> -->
 <div class="container-fluid">
-  <img class="img-responsive" src={{task.image.url}} alt="Chania" width="160" height="160"> 
+  <img class="img-responsive" src={{recipe.image.url}} alt="Chania" width="160" height="160"> 
   <br>
   <h4>{{recipe.name}}</h4>
-  <p>Author:{{recipe.User}}</p>
+  <p>Author:{{recipe.user.username}}</p>
   
 </div>
     
 {% endfor %}
 </div>
 </body>
-</html>
+
+{% endblock %}
+
+{% block scripts%}
+{% endblock %}
+
+<!-- </html> -->
