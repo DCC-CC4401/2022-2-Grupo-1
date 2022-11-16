@@ -1,20 +1,123 @@
-.navbar {
-    padding: .5vw 3vw;
-    margin-bottom: 4vw;
-}
-
-.navbar-nav .nav-item {
-    margin-right: 2vw;
-}
-
-.navbar-buttons {
+.navbar-sup{
+    width: 100%;
+    background: #2F37B3;
+    height: 75px;
     align-items: center;
 }
 
-.navbar-buttons * {
-    margin-left: 1vw;
+.iconSupIzq{
+    width: 100px;
+    height: 100%;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 20px;
+    font-size: 30px;
+    float: left;
+    clear: both;
+    color: #FFF9DF;
+    text-decoration-color: rgba(0,0,0,0);
+    transition: color .5s ease;
 }
 
-.navbar .saludo {
-    height: min-content;
+.iconSupIzq:hover{
+    color: #E3BF2D;
 }
+
+.iconSupDer{
+    height: 100%;
+    display: block;
+    float: right;
+    padding-top: 15px;
+    padding-left: 10px;
+}
+
+.button-navbarSup{
+    background-image: linear-gradient(to right,#6670FF,#E3BF2D);
+    background-size: 600%;
+    transition: background-position .5s ease;
+    color: #E0E0E0;
+
+    text-decoration-color: rgba(0,0,0,0);
+    height: 40px;
+    width: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 8px;
+    
+    border-radius: 25px;
+    
+    float: right;
+
+    font-weight: bold;
+
+}
+
+.button-navbarSup:hover{
+    background-position: right;
+    color: #2E35B3 !important;
+}
+
+.button-navbarSup2{
+    background-image: linear-gradient(to right,#6670FF,#E3BF2D);
+    background-size: 600%;
+    transition: background-position .5s ease;
+    color: #E0E0E0;
+
+    text-decoration-color: rgba(0,0,0,0);
+    height: 40px;
+    width: 200px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 8px;
+
+    border-radius: 25px;
+
+    float: right;
+
+    font-weight: bold;
+
+}
+
+.button-navbarSup2:hover{
+    background-position: right;
+    color: #2E35B3 !important;
+}
+
+.navbar-izq {
+    float: left;
+    position: fixed;
+
+    background-image: linear-gradient(to right,#6670FF,#2F37B3);
+    background-size: 600%;
+    width: 250px;
+    height: 100%;
+
+
+
+}
+
+.button-navbarIzq{
+    padding-top: 10px;
+    background-image: linear-gradient(to right,#6670FF,#2F37B3);
+    background-size: 600%;
+    transition: background-position .5s ease;
+
+    color: #E0E0E0;
+    margin-bottom: 1px;
+
+    text-decoration-color: rgba(0,0,0,0);
+
+    width: 100%;
+    height: 50px;
+    font-weight: bold;
+    float: left;
+    border-bottom: #06253b;
+
+}
+
+.button-navbarIzq:hover{
+    background-position: right;
+    color: #afaff1 !important;
+}
+
