@@ -3,6 +3,9 @@ body{
     background: #023047;
 }
 
+.backgroundRegisterAndLogin{
+}
+
 .init{
     padding-top: 100px;
     color: #FB8500;
@@ -14,15 +17,51 @@ body{
 
 
 .bloqueRegLog{
+    border-radius: 25px;
+    padding: 10px;
+    position: absolute;
     background: #6c98af;
     color: #023047;
+    height: 400px;
+    width: 400px;
+    left: 50%;
+    margin-left: -200px;
 }
 
 
-.sol{
-    position: fixed;
+.bloqueRegLog input{
     float: left;
-    width: 200px;
-    solid-opacity: 1;
+    width: 400px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background: None;
+    border: None;
+}
+
+.bloqueRegLog .formRegister .sol-name{
+    position: absolute;
+}
+
+.bloqueRegLog .button{
+    background-image: linear-gradient(to right,#219EBC,#FFB703);
+    background-size: 600%;
+    transition: background-position .5s ease;
+    color: #E0E0E0;
+
+    text-decoration-color: rgba(0,0,0,0);
+    height: 40px;
+    width: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 8px;
+
+    border-radius: 25px;
+
+    font-weight: bold;
+}
+
+.button:hover{
+    background-position: right;
+    color: #2E35B3 !important;
 }
 
