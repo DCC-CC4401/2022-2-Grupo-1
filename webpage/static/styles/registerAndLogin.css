@@ -1,0 +1,28 @@
+
+body{
+    background: #023047;
+}
+
+.init{
+    padding-top: 100px;
+    color: #FB8500;
+    font-size: 50px;
+    text-decoration-color: rgba(0,0,0,0);
+    text-align: center;
+}
+
+
+
+.bloqueRegLog{
+    background: #6c98af;
+    color: #023047;
+}
+
+
+.sol{
+    position: fixed;
+    float: left;
+    width: 200px;
+    solid-opacity: 1;
+}
+

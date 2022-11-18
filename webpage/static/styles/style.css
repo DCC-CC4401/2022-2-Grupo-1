@@ -1,8 +1,6 @@
 body {
-    color: #FFF;
-    background: #b7b7ee;
+    background: #8ECAE6;
 }
-
 label {
     padding-top: 10px;
     padding-bottom: 5px;
@@ -33,5 +31,11 @@ textarea {
 
 .title-block {
     margin-bottom: 3vw;
+}
+
+main .main-contenido{
+    display: block;
+    margin-left: 280px;
+    margin-right: 18px;
 }
 

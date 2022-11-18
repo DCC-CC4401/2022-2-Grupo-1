@@ -1,17 +1,17 @@
 .navbar-sup{
     width: 100%;
-    background: #2F37B3;
+    background: #023047;
     height: 75px;
-    align-items: center;
+
 }
 
 .iconSupIzq{
     width: 100px;
     height: 100%;
     font-weight: bold;
-    padding-top: 10px;
-    padding-left: 20px;
-    font-size: 30px;
+    padding-top: 1px;
+    padding-left: 10px;
+    font-size: 50px;
     float: left;
     clear: both;
     color: #FFF9DF;
@@ -32,7 +32,7 @@
 }
 
 .button-navbarSup{
-    background-image: linear-gradient(to right,#6670FF,#E3BF2D);
+    background-image: linear-gradient(to right,#219EBC,#FFB703);
     background-size: 600%;
     transition: background-position .5s ease;
     color: #E0E0E0;
@@ -43,13 +43,12 @@
     margin-left: 10px;
     margin-right: 10px;
     padding-top: 8px;
-    
+
     border-radius: 25px;
-    
+
     float: right;
 
     font-weight: bold;
-
 }
 
 .button-navbarSup:hover{
@@ -58,7 +57,7 @@
 }
 
 .button-navbarSup2{
-    background-image: linear-gradient(to right,#6670FF,#E3BF2D);
+    background-image: linear-gradient(to right,#219EBC,#FFB703);
     background-size: 600%;
     transition: background-position .5s ease;
     color: #E0E0E0;
@@ -87,30 +86,35 @@
 .navbar-izq {
     float: left;
     position: fixed;
+    border-right: #06253b;
+    border-right-width: 10px;
 
-    background-image: linear-gradient(to right,#6670FF,#2F37B3);
-    background-size: 600%;
+    background-image: linear-gradient(to right,#219EBC,#8ECAE6);
+    background-size: 1000%;
+
     width: 250px;
     height: 100%;
-
-
-
 }
 
 .button-navbarIzq{
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration-color: rgba(0,0,0,0);
+
     padding-top: 10px;
-    background-image: linear-gradient(to right,#6670FF,#2F37B3);
-    background-size: 600%;
+    background-image: linear-gradient(to right,#219EBC,#8ECAE6);
+    background-size: 1000%;
     transition: background-position .5s ease;
 
     color: #E0E0E0;
     margin-bottom: 1px;
 
-    text-decoration-color: rgba(0,0,0,0);
 
-    width: 100%;
+
+
+    width: 250px;
     height: 50px;
-    font-weight: bold;
+
     float: left;
     border-bottom: #06253b;
 
@@ -118,6 +122,6 @@
 
 .button-navbarIzq:hover{
     background-position: right;
-    color: #afaff1 !important;
+    color: #023047 !important;
 }
 

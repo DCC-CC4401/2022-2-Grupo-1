@@ -29,7 +29,7 @@
 
 <body>
 
-    <div class = "navbar-sup">
+    <header class = "navbar-sup">
         <a class="iconSupIzq" href="/">Ghoti</a>
 
         <div class="iconSupDer">
@@ -41,7 +41,7 @@
           <a class="button-navbarSup" style="padding-left: 8px" href="/register">Registrarse</a>
           {% endif %}
         </div>
-    </div>
+    </header>
 
     <div class = "navbar-izq" id = "navbar-izq">
         <a class="button-navbarIzq"  href="/">Home</a>
@@ -52,8 +52,8 @@
         {% endif %}
     </div>
 
-  <main class="main container">
-    {% block page_content %}{% endblock %}
+  <main>
+    <div class = "main-contenido">{% block page_content %}{% endblock %}</div>
   </main>
 
   {% block scripts %}{% endblock %}
