@@ -1,22 +1,27 @@
-.field-wrapper {
-    margin-bottom: 1vw;
-    padding: 0 3vw;
+.field-wrapper-name{
+    background: rgba(0,0,0,0.18);
+    position: relative;
+    padding-left: 10px;
+    width: 800px;
+    height: 180px;
 }
 
-.field-wrapper span {
-    font-size: 1.3rem;
-    font-weight: 400;
+
+
+.field-wrapper-name label{
+    width: 150px;border-color:#FFB100;
+    border-width:1px;
+    border-style:solid;
+    background:#F5F5F5;
+    font-family:"Courier New",monospace;
+    font-size:12px;
 }
 
-.field-wrapper input,
-.field-wrapper textarea {
-    width: 100%;
-    margin-bottom: 1.3vw;
-    margin-top: 1vw;
+.Title-new {
+    padding: 30px 30px 30px 700px;
 }
 
-.field-wrapper .btn {
-    width: 40%;
-    font-size: 1.3rem;
-    font-weight: 500;
+.Title-new h3{
+    font-size: 4rem;
+    font-weight: bold;
 }

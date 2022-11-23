@@ -1,7 +1,9 @@
 .navbar-sup{
+    position: fixed;
     width: 100%;
-    background: #023047;
+    background: rgba(2, 48, 71, 0.9);
     height: 75px;
+    top: 0;
 
 }
 
@@ -32,7 +34,7 @@
 }
 
 .button-navbarSup{
-    background-image: linear-gradient(to right,#219EBC,#FFB703);
+    background-image: linear-gradient(to right, rgba(33, 158, 188, 1), rgba(255, 183, 3, 1));
     background-size: 600%;
     transition: background-position .5s ease;
     color: #E0E0E0;
@@ -84,12 +86,13 @@
 }
 
 .navbar-izq {
+    top: 75px;
     float: left;
     position: fixed;
     border-right: #06253b;
     border-right-width: 10px;
 
-    background-image: linear-gradient(to right,#219EBC,#FFB703);
+    background-image: linear-gradient(to right, rgba(33, 158, 188, 0.9), rgba(255, 183, 3, 0.9));
     background-size: 1000%;
 
     width: 250px;
@@ -97,31 +100,34 @@
 }
 
 .button-navbarIzq{
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-weight: bold;
     text-decoration-color: rgba(0,0,0,0);
 
-    padding-top: 10px;
-    background-image: linear-gradient(to right,#219EBC,#FFB703  );
+    background-image: linear-gradient(to right,rgba(33, 158, 188, 0.5),rgba(255, 183, 3, 0.5)  );
     background-size: 1000%;
     transition: background-position .5s ease;
 
     color: #E0E0E0;
     margin-bottom: 1px;
+    padding-top: 20px;
 
 
 
 
     width: 250px;
-    height: 50px;
+    height: 80px;
 
     float: left;
     border-bottom: #06253b;
-
 }
 
 .button-navbarIzq:hover{
     background-position: right;
     color: #023047 !important;
+}
+
+.button-navbarIzq a{
+
 }
 

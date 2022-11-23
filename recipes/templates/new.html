@@ -9,15 +9,15 @@
 
 {% block page_content %}
 
-    <div class="title-block">
+    <div class="Title-new">
     <h3>Agregar receta</h3>
     </div>
 
-<form class="recipe-form row" method="post" action="/recipes/new/" enctype="multipart/form-data">
+<form class="" method="post" action="/recipes/new/" enctype="multipart/form-data">
     {% csrf_token %}
-    <div class="form-block col-6">
-        <div class="field-wrapper">
-            <span>* Título receta:</span>
+    <div class="form-block">
+        <div class="field-wrapper-name">
+            <label>* Título receta:</label>
             {{ form.name }}
         </div>
         

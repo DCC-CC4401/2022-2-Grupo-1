@@ -1,5 +1,5 @@
 body {
-    background: #8ECAE6;
+    background-image: url("../img/fondo.jpg");
 }
 label {
     padding-top: 10px;
@@ -35,7 +35,9 @@ textarea {
 
 main .main-contenido{
     display: block;
+    margin-top: 90px ;
     margin-left: 280px;
     margin-right: 18px;
+    background: rgba(255, 214, 134, 0.2);
 }
 

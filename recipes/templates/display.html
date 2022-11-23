@@ -21,7 +21,7 @@
 <div class="grid-container"> 
 
 {% for recipe in recipes %}
-<div class="container-fluid">
+<div class="recipes">
   <img class="img-responsive" src="{% static 'img/'|add:recipe.image_path %}" alt="Chania" width="160" height="160"> 
   <br>
   <h4>{{recipe.name}}</h4>
