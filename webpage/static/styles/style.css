@@ -1,5 +1,6 @@
 body {
     background-image: url("../img/fondo.jpg");
+    background-position: left;
 }
 label {
     padding-top: 10px;
@@ -10,10 +11,12 @@ label {
 input[type=text],
 input[type=password],
 textarea {
-    border: 1px solid #DD33FF;
+    border: None;
+    border-bottom: #FB8500;
     border-radius: 5px;
+    background: rgba(255, 255, 255, 0.26);
     padding: 10px;
-    width: 20%;
+    width: 40%;
 }
 
 .button {

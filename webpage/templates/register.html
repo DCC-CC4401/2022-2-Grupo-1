@@ -14,19 +14,27 @@
         <h1 style="text-align: center">Registro de usuario</h1>
         <form class="formRegister" method="post">
           {% csrf_token %}
-            <p>Nombre de usuario:</p>
+
           <label class="sol-name"></label>
           {{form.username}}
-            <p>Contraseña:</p>
+            <p>Nombre de usuario</p>
+
           <label class="sol password1"></label>
           {{form.password1}}
-            <p>Confirme contraseña:</p>
+            <p>Contraseña</p>
+
           <label class="sol password1"></label>
           {{form.password2}}
+            <p>Confirme contraseña</p>
           <br>
-          <input class="button " type="submit" value="Registrarse" style="float:contour">
+          <div class="UbcButton"><input class="button" type="submit" value="Registrarse" style="float:contour"></div>
         </form>
-        <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia sesión</a></p>
+        <div class="parteInferior">
+            <p >¿Ya tienes una cuenta?</p>
+            <p><a href="{% url 'login' %}">Inicia sesión</a></p>
+        </div>
+
+
     </div>
 </div>
 {% endblock %}

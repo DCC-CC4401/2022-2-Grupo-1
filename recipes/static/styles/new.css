@@ -2,23 +2,23 @@
     background: rgba(0,0,0,0.18);
     position: relative;
     padding-left: 10px;
-    width: 800px;
-    height: 180px;
+    width: 50%;
+    height: 20%;
 }
 
 
 
-.field-wrapper-name label{
-    width: 150px;border-color:#FFB100;
-    border-width:1px;
-    border-style:solid;
-    background:#F5F5F5;
+.field-wrapper label[text]{
+    width: 1000px;
+    border-width:10px;
+    border-style: None;
     font-family:"Courier New",monospace;
     font-size:12px;
+    padding: 10px;
 }
 
 .Title-new {
-    padding: 30px 30px 30px 700px;
+    padding: 30px 30px 30px 25%;
 }
 
 .Title-new h3{

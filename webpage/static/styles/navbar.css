@@ -1,7 +1,7 @@
 .navbar-sup{
     position: fixed;
     width: 100%;
-    background: rgba(2, 48, 71, 0.9);
+    background: rgba(2, 48, 71, 1);
     height: 75px;
     top: 0;
 
@@ -127,7 +127,4 @@
     color: #023047 !important;
 }
 
-.button-navbarIzq a{
-
-}
 

@@ -1,22 +1,33 @@
 
+
 body{
-    background: #023047;
+    background-image: url("../img/fondo.jpg");
 }
 
-.backgroundRegisterAndLogin{
-}
+/* REGISTRO */
 
 .init{
-    padding-top: 100px;
-    color: #FB8500;
+    position: absolute;
+    color: #023047;
+    width: 100%;
+    top: 20px;
+    left: 0;
     font-size: 50px;
     text-decoration-color: rgba(0,0,0,0);
     text-align: center;
+    font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    font-weight: bold;
+    transition: color .5s ease, font-size .5s ease-in;
+}
+
+.init:hover{
+    color: #FB8500;
+    font-size: 70px;
 }
 
 
-
 .bloqueRegLog{
+    top: 150px;
     border-radius: 25px;
     padding: 10px;
     position: absolute;
@@ -34,15 +45,24 @@ body{
     width: 400px;
     padding-bottom: 10px;
     padding-top: 10px;
-    background: None;
-    border: None;
+    background: #7d9fb0;
+    border-color: rgba(6, 37, 59, 0.27)
+}
+.bloqueRegLog input:focus{
+    border-color: rgb(255, 144, 0);
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255,144,0,0.6);
+    outline: 0 none;
 }
 
-.bloqueRegLog .formRegister .sol-name{
-    position: absolute;
+.bloqueRegLog p{
+    color: #06253b;
+    font-weight: bold;
+    font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
 }
+
 
 .bloqueRegLog .button{
+    position: relative;
     background-image: linear-gradient(to right,#219EBC,#FFB703);
     background-size: 600%;
     transition: background-position .5s ease;
@@ -51,9 +71,8 @@ body{
     text-decoration-color: rgba(0,0,0,0);
     height: 40px;
     width: 100px;
-    margin-left: 10px;
-    margin-right: 10px;
     padding-top: 8px;
+    left: -58px;
 
     border-radius: 25px;
 
@@ -65,3 +84,28 @@ body{
     color: #2E35B3 !important;
 }
 
+.UbcButton {
+    position: relative;
+    width: 100%;
+    left: 50%;
+    bottom: 30px;
+}
+
+.parteInferior{
+    width: 100%;
+    position: relative;
+}
+
+
+/* LOGIN */
+
+.bloqueRegLog .ingresar {
+    top: 10px;
+    position: relative;
+    left: 50%;
+}
+
+.bloqueRegLog .register{
+    top: 50px;
+    position: relative;
+}

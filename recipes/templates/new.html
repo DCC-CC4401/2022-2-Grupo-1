@@ -16,18 +16,18 @@
 <form class="" method="post" action="/recipes/new/" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-block">
-        <div class="field-wrapper-name">
+        <div class="field-wrapper">
             <label>* Título receta:</label>
             {{ form.name }}
         </div>
         
         <div class="field-wrapper">
-            <span>* Ingredientes:</span>
+            <label>* Ingredientes:</label>
             {{ form.ingredients }}
         </div>
         
         <div class="field-wrapper">
-            <span>* Instrucciones:</span>
+            <label>* Instrucciones:</label>
             {{ form.instructions }}
         </div>
 
