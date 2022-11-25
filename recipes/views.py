@@ -117,3 +117,65 @@ class NewRecipeView(generic.TemplateView):
             return HttpResponseRedirect(f"/recipes/{recipe.id}")
 
         return HttpResponseRedirect("/recipes/new/")
+
+class EditRecipeView(generic.TemplateView):
+    """
+    Edit Recipe View class.
+
+    Handles the view's requests.
+    """
+
+    # noinspection PyMethodOverriding
+    def get(self, request, id_recipe):
+        """
+        Manage a get request.
+
+        Returns:
+            A rendered view with the edit recipe form.
+        """
+
+        recipe_form = forms.NewRecipeForm()
+        try:
+            recipe = models.Recipe.objects.get(id=id_recipe)
+        except models.Recipe.DoesNotExist:
+            return HttpResponseRedirect(f"/recipes/{id_recipe}")
+
+        if request.user != recipe.user:
+            return HttpResponseRedirect(f"/recipes/{id_recipe}")
+
+        view_context = {
+            "form": recipe_form
+        }
+
+        return shortcuts.render(request, "edit.html", context=view_context)
+
+    def post(self, request):
+        """
+        Manage the form submit.
+
+        Returns:
+            A rendered view with the created recipe.
+        """
+
+        recipe_data = forms.NewRecipeForm(request.POST, request.FILES)
+
+        if recipe_data.is_valid():
+            try:
+                img = request.FILES["image"]
+                image_path = img.name
+
+                with open(f"recipes/static/img/{img.name}", "wb+") as destination:
+                    for chunk in img.chunks():
+                        destination.write(chunk)
+
+            except MultiValueDictKeyError:
+                image_path = models.Recipe._meta.get_field("image_path").get_default()
+
+            recipe_data = recipe_data.cleaned_data
+            recipe = models.Recipe(user=request.user, name=recipe_data["name"], ingredients=recipe_data["ingredients"],
+                                   instructions=recipe_data["instructions"], image_path=image_path)
+            recipe.save()
+
+            return HttpResponseRedirect(f"/recipes/{recipe.id}")
+
+        return HttpResponseRedirect("/recipes/new/")
