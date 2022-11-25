@@ -87,6 +87,7 @@ class NewRecipeView(generic.TemplateView):
 
         return shortcuts.render(request, "new.html", context=view_context)
 
+    # noinspection PyMethodMayBeStatic
     def post(self, request):
         """
         Manage the form submit.
@@ -107,6 +108,7 @@ class NewRecipeView(generic.TemplateView):
                         destination.write(chunk)
 
             except MultiValueDictKeyError:
+                # noinspection PyProtectedMember
                 image_path = models.Recipe._meta.get_field("image_path").get_default()
 
             recipe_data = recipe_data.cleaned_data
@@ -117,6 +119,7 @@ class NewRecipeView(generic.TemplateView):
             return HttpResponseRedirect(f"/recipes/{recipe.id}")
 
         return HttpResponseRedirect("/recipes/new/")
+
 
 class EditRecipeView(generic.TemplateView):
     """
@@ -149,6 +152,7 @@ class EditRecipeView(generic.TemplateView):
 
         return shortcuts.render(request, "edit.html", context=view_context)
 
+    # noinspection PyMethodMayBeStatic
     def post(self, request):
         """
         Manage the form submit.
@@ -169,6 +173,7 @@ class EditRecipeView(generic.TemplateView):
                         destination.write(chunk)
 
             except MultiValueDictKeyError:
+                # noinspection PyProtectedMember
                 image_path = models.Recipe._meta.get_field("image_path").get_default()
 
             recipe_data = recipe_data.cleaned_data
