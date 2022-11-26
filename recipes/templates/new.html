@@ -13,19 +13,24 @@
     <h3>Agregar receta</h3>
     </div>
 
-<form class="" method="post" action="/recipes/new/" enctype="multipart/form-data">
+<form class="block" method="post" action="/recipes/new/" enctype="multipart/form-data">
     {% csrf_token %}
-    <div class="form-block">
-        <div class="field-wrapper">
+    <div class="left-block">
+        <div class="name">
             <label>* Título receta:</label>
             {{ form.name }}
         </div>
-        
         <div class="field-wrapper">
+            <span>Foto:</span>
+            {{ form.image }}
+        </div>
+    </div>
+    <div class="right-block">
+        <div class="ingredients">
             <label>* Ingredientes:</label>
             {{ form.ingredients }}
         </div>
-        
+
         <div class="field-wrapper">
             <label>* Instrucciones:</label>
             {{ form.instructions }}
@@ -35,12 +40,7 @@
             <input class="btn btn-success" type="submit" value="Agregar Receta"/>
         </div>
     </div>
-    <div class="form-block col-6">
-        <div class="field-wrapper">
-            <span>Foto:</span>
-            {{ form.image }}
-        </div>
-    </div>
+
 </form>
 {% endblock %}
 

@@ -1,22 +1,3 @@
-.field-wrapper-name{
-    background: rgba(0,0,0,0.18);
-    position: relative;
-    padding-left: 10px;
-    width: 50%;
-    height: 20%;
-}
-
-
-
-.field-wrapper label[text]{
-    width: 1000px;
-    border-width:10px;
-    border-style: None;
-    font-family:"Courier New",monospace;
-    font-size:12px;
-    padding: 10px;
-}
-
 .Title-new {
     padding: 30px 30px 30px 25%;
 }
@@ -24,4 +5,42 @@
 .Title-new h3{
     font-size: 4rem;
     font-weight: bold;
+}
+.block{
+    font-weight: bold;
+}
+
+.left-block {
+    float: left;
+    width: 48%;
+    height: 300px;
+}
+
+.right-block{
+    float: right;
+    background: #DD33FF;
+    width: 48%;
+    height: 300px;
+}
+
+.left-block .name{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.left-block .name input{
+    width: 100%;
+    background: rgba(227, 191, 45, 0.43);
+    border-color: #282828;
+}
+
+.right-block .ingred{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.right-block .ingred input{
+    background: rgba(227, 191, 45, 0.43);
+    border-color: #282828;
+
 }
