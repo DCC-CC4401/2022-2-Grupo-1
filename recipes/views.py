@@ -33,9 +33,11 @@ class LecturaRecetaView(generic.TemplateView):
         
 
         view_context = {
-            "recipe": recipe,
-            "is_saved": models.UserLikesRecipe.objects.filter(user=request.user, recipe=recipe).exists()
+            "recipe": recipe
         }
+
+        if request.user.is_authenticated:
+            view_context["is_saved"] = models.UserLikesRecipe.objects.filter(user=request.user, recipe=recipe).exists()
 
         return shortcuts.render(request, "recipe.html", context=view_context)
 
