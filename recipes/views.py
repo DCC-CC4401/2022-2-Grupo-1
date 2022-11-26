@@ -30,7 +30,7 @@ class LecturaRecetaView(generic.TemplateView):
         except models.Recipe.DoesNotExist:
             return shortcuts.render(request, "display.html")
 
-        
+
 
         view_context = {
             "recipe": recipe
@@ -95,7 +95,7 @@ class RecetasView(generic.TemplateView):
 class RecetasCreadasView(generic.TemplateView):
     """
     Own recipes Display View class.
-    
+
     Handles the view's requests.
     """
 
@@ -103,7 +103,7 @@ class RecetasCreadasView(generic.TemplateView):
     def get(self, request):
         """
         Manage a get request.
-        
+
         Returns:
             A rendered view with the recipes display.
         """
@@ -119,7 +119,7 @@ class RecetasCreadasView(generic.TemplateView):
 class RecetasGuardadasView(generic.TemplateView):
     """
     Saved recipes Display View class.
-    
+
     Handles the view's requests.
     """
 
@@ -127,7 +127,7 @@ class RecetasGuardadasView(generic.TemplateView):
     def get(self, request):
         """
         Manage a get request.
-        
+
         Returns:
             A rendered view with the recipes display.
         """
@@ -165,6 +165,7 @@ class NewRecipeView(generic.TemplateView):
 
         return shortcuts.render(request, "new.html", context=view_context)
 
+    # noinspection PyMethodMayBeStatic
     def post(self, request):
         """
         Manage the form submit.
@@ -190,6 +191,7 @@ class NewRecipeView(generic.TemplateView):
             return HttpResponseRedirect(f"/recipes/{recipe.id}")
 
         return HttpResponseRedirect("/recipes/new/")
+
 
 class EditRecipeView(generic.TemplateView):
     """
@@ -224,6 +226,7 @@ class EditRecipeView(generic.TemplateView):
 
         return shortcuts.render(request, "edit.html", context=view_context)
 
+    # noinspection PyMethodMayBeStatic
     def post(self, request, recipe_id):
         """
         Manage the form submit.
@@ -248,3 +251,9 @@ class EditRecipeView(generic.TemplateView):
             return HttpResponseRedirect(f"/recipes/{recipe.id}")
 
         return HttpResponseRedirect(f"/recipes/edit/{recipe.id}")
+
+
+class SearchRecipesView(generic.ListView):
+    model = models.Recipe
+    template_name = 'search_results.html'
+    ...
