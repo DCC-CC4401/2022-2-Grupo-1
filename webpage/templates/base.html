@@ -30,7 +30,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-left">
     <a class="navbar-brand col-1" href="/">Ghoti</a>
-    <div class="navbar-links col-3" id="navbarText">
+    <div class="navbar-links col-5" id="navbarText">
       <ul class="navbar-nav d-flex justify-content-start">
         <li class="nav-item">
           <a class="nav-link" href="/">Home</a>
@@ -38,9 +38,17 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'recipes' %}">Recetas</a>
         </li>
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'created-recipes' %}">Recetas Creadas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'saved-recipes' %}">Recetas Guardadas</a>
+        </li>
+        {% endif %}
       </ul>
     </div>
-    <div class="navbar-buttons justify-content-end d-flex col-3 offset-5">
+    <div class="navbar-buttons justify-content-end d-flex col-3 offset-3">
       {% if request.user.is_authenticated %}
       <span class="saludo">Hola, {{request.user.username|title}}</span>
       {% endif %}

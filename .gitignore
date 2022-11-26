@@ -57,6 +57,7 @@ local_settings.py
 *.sqlite3
 recipes/static/img/*
 !recipes/static/img/default.svg
+webpage/media/*
 
 # Flask stuff:
 instance/

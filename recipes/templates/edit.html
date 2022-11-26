@@ -11,7 +11,7 @@
 <div class="title-block">
     <h3>Editar Receta</h3>
 </div>
-<form class="recipe-form row" method="post" action="/recipes/edit/" enctype="multipart/form-data">
+<form class="recipe-form row" method="post" action="/recipes/edit/{{ recipe_id }}/" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-block col-6">
         <div class="field-wrapper">
@@ -30,7 +30,7 @@
         </div>
 
         <div class="field-wrapper">
-            <input class="btn btn-success" type="submit" value="Agregar Receta"/>
+            <input class="btn btn-success" type="submit" value="Guardar Cambios"/>
         </div>
     </div>
     <div class="form-block col-6">

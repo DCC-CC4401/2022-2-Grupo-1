@@ -13,8 +13,8 @@
 </div>
 <div class="recipes-block">
   {% for recipe in recipes %}
-  <a class="recipe-card" href="{% url "recipe" recipe.id %}">
-    <div class="recipe-image" style="background-image: url('{% static 'img/'|add:recipe.image_path %}')">
+  <a class="recipe-card" href="{% url 'recipe' recipe.id %}">
+    <div class="recipe-image" style="background-image: url('{% if recipe.image %}{{ recipe.image.url }}{% else %}{% static 'img/default.png'%}{% endif %}')">
     </div>
     <div class="recipe-info">
       <h1 class="recipe-name">{{ recipe.name }}</h1>
