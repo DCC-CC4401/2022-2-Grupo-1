@@ -8,6 +8,7 @@ import PIL
 from . import forms
 from . import models
 
+from django.db.models import Q
 
 class LecturaRecetaView(generic.TemplateView):
     """
@@ -138,12 +139,14 @@ class RecetasGuardadasView(generic.TemplateView):
 
         recipes_list = [x.recipe for x in models.UserLikesRecipe.objects.filter(user=request.user)]
 
+        search_input = self.request.GET.get('search-area') or ''
+        if search_input:
+            for i in recipes_list:
+                if search_input not in i.name:
+                    recipes_list.remove(i)
         view_context = {
             "recipes": recipes_list
         }
-        search_input = self.request.GET.get('search-area') or ''
-        if search_input:
-            view_context['recipes'] = view_context['recipes'].filter(name__icontains=search_input)
         return shortcuts.render(request, "display.html", context=view_context)
 
 
