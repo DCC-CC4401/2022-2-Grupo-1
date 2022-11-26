@@ -12,7 +12,7 @@ from . import models
 class LecturaRecetaView(generic.TemplateView):
     """
     Recipe Reading View class.
-    
+
     Handles the view's requests.
     """
 
@@ -20,7 +20,7 @@ class LecturaRecetaView(generic.TemplateView):
     def get(self, request, recipe_id):
         """
         Manage a get request.
-        
+
         Returns:
             A rendered view with the recipe template.
         """
@@ -71,7 +71,7 @@ class LecturaRecetaView(generic.TemplateView):
 class RecetasView(generic.TemplateView):
     """
     Recipes Display View class.
-    
+
     Handles the view's requests.
     """
 
@@ -79,7 +79,7 @@ class RecetasView(generic.TemplateView):
     def get(self, request):
         """
         Manage a get request.
-        
+
         Returns:
             A rendered view with the recipes display.
         """
@@ -89,7 +89,9 @@ class RecetasView(generic.TemplateView):
         view_context = {
             "recipes": recipes_list
         }
-
+        search_input = self.request.GET.get('search-area') or ''
+        if search_input:
+            view_context['recipes'] = view_context['recipes'].filter(name__icontains=search_input)
         return shortcuts.render(request, "display.html", context=view_context)
 
 class RecetasCreadasView(generic.TemplateView):
@@ -113,7 +115,9 @@ class RecetasCreadasView(generic.TemplateView):
         view_context = {
             "recipes": recipes_list
         }
-
+        search_input = self.request.GET.get('search-area') or ''
+        if search_input:
+            view_context['recipes'] = view_context['recipes'].filter(name__icontains=search_input)
         return shortcuts.render(request, "display.html", context=view_context)
 
 class RecetasGuardadasView(generic.TemplateView):
@@ -137,7 +141,9 @@ class RecetasGuardadasView(generic.TemplateView):
         view_context = {
             "recipes": recipes_list
         }
-
+        search_input = self.request.GET.get('search-area') or ''
+        if search_input:
+            view_context['recipes'] = view_context['recipes'].filter(name__icontains=search_input)
         return shortcuts.render(request, "display.html", context=view_context)
 
 
