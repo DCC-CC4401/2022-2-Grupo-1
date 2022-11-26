@@ -18,7 +18,11 @@
     flex-direction: column;
 }
 
-.recipe-buttons button {
+.recipe-buttons button,
+.recipe-buttons a {
     margin: .5vw 0;
+    text-align: left;
+    text-decoration: none;
+    color: #FFF;
     text-align: left;
 }
