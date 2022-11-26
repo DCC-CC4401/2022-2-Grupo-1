@@ -8,8 +8,6 @@ import PIL
 from . import forms
 from . import models
 
-from django.db.models import Q
-
 class LecturaRecetaView(generic.TemplateView):
     """
     Recipe Reading View class.
