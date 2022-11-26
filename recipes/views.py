@@ -184,3 +184,9 @@ class EditRecipeView(generic.TemplateView):
             return HttpResponseRedirect(f"/recipes/{recipe.id}")
 
         return HttpResponseRedirect("/recipes/new/")
+
+
+class SearchRecipesView(generic.ListView):
+    model = models.Recipe
+    template_name = 'search_results.html'
+    ...
