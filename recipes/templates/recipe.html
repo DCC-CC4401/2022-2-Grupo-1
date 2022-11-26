@@ -19,9 +19,6 @@
             {% if request.user.is_authenticated %}
             <button class="btn btn-success">Agregar a favoritos</button>
             {% endif %}
-            {% if request.user == recipe.user %}
-            <a href="{% url 'edit-recipe' recipe.id %}" class="btn btn-primary">Editar</a>
-            {% endif %}
         </div>
 
     </div>
