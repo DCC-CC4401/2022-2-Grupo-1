@@ -1,9 +1,19 @@
+import django.views.generic.base
 from django import shortcuts
 from django.http import HttpResponseRedirect
 from django.views import generic
 
 from . import forms
 from . import models
+
+
+class Buscador(django.views.generic.base.View):
+
+    def filter_search(self, view_context, filter_name='recipes'):
+        search_input = self.request.GET.get('search-area') or ''
+        if search_input:
+            view_context[filter_name] = view_context[filter_name].filter(name__icontains=search_input)
+        return view_context
 
 
 class LecturaRecetaView(generic.TemplateView):
@@ -68,7 +78,7 @@ class LecturaRecetaView(generic.TemplateView):
         return shortcuts.render(request, "recipe.html", context=view_context)
 
 
-class RecetasView(generic.TemplateView):
+class RecetasView(generic.TemplateView, Buscador):
     """
     Recipes Display View class.
 
@@ -86,16 +96,14 @@ class RecetasView(generic.TemplateView):
 
         recipes_list = models.Recipe.objects.all()
 
-        view_context = {
+        view_context = self.filter_search({
             "recipes": recipes_list
-        }
-        search_input = self.request.GET.get('search-area') or ''
-        if search_input:
-            view_context['recipes'] = view_context['recipes'].filter(name__icontains=search_input)
+        }, filter_name='recipes')
+
         return shortcuts.render(request, "display.html", context=view_context)
 
 
-class RecetasCreadasView(generic.TemplateView):
+class RecetasCreadasView(generic.TemplateView, Buscador):
     """
     Own recipes Display View class.
 
@@ -113,16 +121,14 @@ class RecetasCreadasView(generic.TemplateView):
 
         recipes_list = models.Recipe.objects.filter(user=request.user)
 
-        view_context = {
+        view_context = self.filter_search({
             "recipes": recipes_list
-        }
-        search_input = self.request.GET.get('search-area') or ''
-        if search_input:
-            view_context['recipes'] = view_context['recipes'].filter(name__icontains=search_input)
+        }, filter_name='recipes')
+
         return shortcuts.render(request, "display.html", context=view_context)
 
 
-class RecetasGuardadasView(generic.TemplateView):
+class RecetasGuardadasView(generic.TemplateView, Buscador):
     """
     Saved recipes Display View class.
 
@@ -143,12 +149,12 @@ class RecetasGuardadasView(generic.TemplateView):
 
         search_input = self.request.GET.get('search-area') or ''
         if search_input:
-            for i in recipes_list:
-                if search_input not in i.name:
-                    recipes_list.remove(i)
+            recipes_list = [recipe for recipe in recipes_list if search_input.lower() in recipe.name.lower()]
+
         view_context = {
             "recipes": recipes_list
         }
+
         return shortcuts.render(request, "display.html", context=view_context)
 
 
