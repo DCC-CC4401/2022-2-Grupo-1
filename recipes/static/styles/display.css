@@ -20,12 +20,19 @@
     border: #D8D5C4 solid;
 }
 
-.recipe a{
-    text-decoration-color: rgba(0,0,0,0);
+.recipe a {
+    text-decoration-color: rgba(0, 0, 0, 0);
     color: #E0E0E0;
+    font-size: medium;
 }
 
-.recipe .recipe-image{
+.recipe h1 {
+    text-decoration-color: rgba(0, 0, 0, 0);
+    color: #E0E0E0;
+    font-size: x-large;
+}
+
+.recipe .recipe-image {
     position: relative;
     height: 200px;
     width: 100%;
