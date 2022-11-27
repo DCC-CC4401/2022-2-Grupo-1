@@ -22,9 +22,8 @@ class Recipe(models.Model):
     # Instrucciones de la preparación
     instructions = models.TextField()
     # Path de la imagen linkeada
-    image_path = models.CharField(
-        max_length=255,
-        default="default.svg"
+    image = models.ImageField(
+        upload_to=""
     )
     # Fecha de la publicación
     publish_date = models.DateTimeField(
@@ -37,3 +36,8 @@ class Recipe(models.Model):
                 f"user={self.user.get_username()}, "
                 f"name={self.name}"
                 f")")
+
+
+class UserLikesRecipe(models.Model):
+    user = models.ForeignKey("webpage.User", on_delete=models.CASCADE)
+    recipe = models.ForeignKey("Recipe", on_delete=models.CASCADE)

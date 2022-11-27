@@ -27,8 +27,7 @@
     padding-left: 10px;
     padding-right: 10px;
 }
-
-.left-block .name input{
+input{
     width: 100%;
     background: rgba(227, 191, 45, 0.43);
     border-color: #282828;
@@ -37,10 +36,4 @@
 .right-block .ingred{
     padding-left: 10px;
     padding-right: 10px;
-}
-
-.right-block .ingred input{
-    background: rgba(227, 191, 45, 0.43);
-    border-color: #282828;
-
 }

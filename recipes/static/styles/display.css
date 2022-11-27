@@ -1,14 +1,34 @@
-.grid-container {
+.recipes-block {
+    justify-content: center;
+    align-items: center;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;
-    background-color: #06253b;
-    padding: 10px;
-  }
-  
-  .grid-container > div {
-    /* background-color: rgba(255, 255, 255, 0.8); */
-    text-align: center;
-    padding: 20px 0;
-    font-size: 12px;
-  }
+}
+
+.recipe{
+    background: #5A6E5A;
+    border: #F5C265 solid;
+    height: 200px;
+    width: 200px;
+    transition: border .1s ease;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.recipe:hover {
+    border: #D8D5C4 solid;
+}
+
+.recipe a{
+    text-decoration-color: rgba(0,0,0,0);
+    color: #E0E0E0;
+}
+
+.recipe .recipe-image{
+    position: relative;
+    height: 100px;
+    width: 100px;
+    transform: translateX(50px);
+    background-size: contain;
+}

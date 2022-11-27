@@ -8,20 +8,29 @@
 {% endblock %}
 
 {% block page_content %}
+<form class="d-hidden" id="save_form" method="post" action="/recipes/{{ recipe.id }}/">
+    {% csrf_token %}
+    <input type="hidden" id="hidden_input" name="saved" value="{{ is_saved }}"/>
+</form>
 <div class="row recipe-header justify-content-center">
     <div class="col-3 recipe-img">
-        <img src="{% static 'img/'|add:recipe.image_path %}"/>
+        <img src="{% if recipe.image %}{{ recipe.image.url }}{% else %}{% static 'img/default.png'%}{% endif %}"/>
     </div>
     <div class="recipe-head col-3">
         <h3>{{ recipe.name }}</h3>
         <p>Por: {{ recipe.user.username }}</p>
         <div class="recipe-buttons">
             {% if request.user.is_authenticated %}
-            <button class="btn btn-success">Agregar a favoritos</button>
+            {% if not is_saved %}
+            <button class="notActivated" onclick="{saveRecipe(true)}">Agregar a favoritos</button>
+            {% else %}
+            <button class="Activated" onclick="{saveRecipe(false)}">Quitar de favoritos</button>
             {% endif %}
+            {% endif %}       
             {% if request.user == recipe.user %}
-            <button class="btn btn-primary">Editar</button>
+            <a  href="{% url 'edit-recipe' recipe.id %}" class="notActivated" style="padding-top: 11px" >Editar receta</a>
             {% endif %}
+
         </div>
 
     </div>
@@ -37,4 +46,11 @@
 {% endblock %}
 
 {% block scripts%}
+<script>
+    const saveRecipe = (value) => {
+        console.log(value);
+        document.getElementById("hidden_input").value = value;
+        document.getElementById("save_form").submit();
+    }
+</script>
 {% endblock %}

@@ -1,5 +1,6 @@
 from django import forms
 
+
 class NewRecipeForm(forms.Form):
     name = forms.CharField(label="Título", max_length=100)
     image = forms.FileField(required=False)

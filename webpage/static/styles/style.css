@@ -2,11 +2,6 @@ body {
     background-image: url("../img/fondo.jpg");
     background-position: left;
 }
-label {
-    padding-top: 10px;
-    padding-bottom: 5px;
-    display: block;
-}
 
 .button {
     border: 1px solid #DD33FF;
@@ -26,10 +21,12 @@ label {
 }
 
 main .main-contenido{
+    padding: 10px;
+    border-radius: 10px;
     display: block;
     margin-top: 90px ;
     margin-left: 280px;
     margin-right: 18px;
-    background: rgba(255, 214, 134, 0.2);
+    background: rgba(224, 224, 224, 0.45);
 }
 

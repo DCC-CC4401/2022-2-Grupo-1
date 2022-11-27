@@ -1,39 +1,31 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block page_title %}Agregar receta{% endblock %}
+{% block page_title %}Recetas{% endblock %}
 
 {% block specific_css_files %}
 <link rel="stylesheet" href="{% static 'styles/display.css' %}">
 {% endblock %}
 
-
-
 {% block page_content %}
-
-<body>
-
-<h2>Lista Recetas</h2>
-
-<p>Lista de recetas ingresadas por los usuarios</p>
-
-
-<div class="grid-container"> 
-
-{% for recipe in recipes %}
-<div class="recipes">
-  <img class="img-responsive" src="{% static 'img/'|add:recipe.image_path %}" alt="Chania" width="160" height="160"> 
-  <br>
-  <h4>{{recipe.name}}</h4>
-  <p>Author:{{recipe.user.username}}</p>
-  
+<div class="title-block">
+    <h3>Recetas</h3>
 </div>
-{% endfor %}
-</div>
-</body>
+<div class="recipes-block">
+  {% for recipe in recipes %}
+      <div class="recipe" onclick="{% url 'recipe' recipe.id %}">
+          <div class="recipe-image" style="background-image: url('{% if recipe.image %}{{ recipe.image.url }}{% else %}{% static 'img/default.png'%}{% endif %}')">
+          </div>
+          <a  href="{% url 'recipe' recipe.id %}">
+              <div class="recipe-info">
+                  <h1 class="recipe-name">{{ recipe.name }}</h1>
+                  <p>Por: {{ recipe.user.username }}</p>
+            </div>
+  </a></div>
 
+  {% endfor %}
+</div>
 {% endblock %}
 
 {% block scripts%}
 {% endblock %}
-
