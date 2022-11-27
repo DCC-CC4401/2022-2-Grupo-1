@@ -7,6 +7,7 @@ import recipes.models
 class RecipeAdmin(admin.ModelAdmin):
     list_display = ("id", "name", "user")
 
+
 @admin.register(recipes.models.UserLikesRecipe)
 class UserLikesRecipeAdmin(admin.ModelAdmin):
     list_display = ("id", "user", "recipe")

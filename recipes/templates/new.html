@@ -1,46 +1,45 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block page_title %}Agregar receta{% endblock %}
+{% block page_title %}Inicio{% endblock %}
 
 {% block specific_css_files %}
 <link rel="stylesheet" href="{% static 'styles/new.css' %}">
 {% endblock %}
 
 {% block page_content %}
-<div class="title-block">
+
+    <div class="Title-new">
     <h3>Agregar receta</h3>
-</div>
-<form class="recipe-form row" method="post" action="/recipes/new/" enctype="multipart/form-data">
+    </div>
+
+<form class="block" method="post" action="/recipes/new/" enctype="multipart/form-data">
     {% csrf_token %}
-    <div class="form-block col-6">
-        <div class="field-wrapper">
-            <span>* Título receta:</span>
+    <div class="left-block">
+        <div class="name">
+            <p  >* Título receta:</p>
             {{ form.name }}
         </div>
-        
-        <div class="field-wrapper">
-            <span>* Ingredientes:</span>
-            {{ form.ingredients }}
-        </div>
-        
-        <div class="field-wrapper">
-            <span>* Instrucciones:</span>
-            {{ form.instructions }}
-        </div>
-
-        <div class="field-wrapper">
-            <input class="btn btn-success" type="submit" value="Agregar Receta"/>
-        </div>
-    </div>
-    <div class="form-block col-6">
         <div class="field-wrapper">
             <span>Foto:</span>
             {{ form.image }}
         </div>
     </div>
+    <div class="right-block">
+        <div class="ingredients">
+            <p>* Ingredientes:</p>
+            {{ form.ingredients }}
+        </div>
+    </div>
+    <div >
+        <p> *Instrucciones:</p>
+        {{ form.instructions }}
+        <input class="button-new" type="submit" value="Agregar Receta"/>
+    </div>
+
 </form>
 {% endblock %}
+
 
 {% block scripts%}
 {% endblock %}

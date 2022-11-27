@@ -37,6 +37,7 @@ class Recipe(models.Model):
                 f"name={self.name}"
                 f")")
 
+
 class UserLikesRecipe(models.Model):
     user = models.ForeignKey("webpage.User", on_delete=models.CASCADE)
     recipe = models.ForeignKey("Recipe", on_delete=models.CASCADE)

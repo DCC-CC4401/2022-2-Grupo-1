@@ -12,7 +12,7 @@ from . import models
 class LecturaRecetaView(generic.TemplateView):
     """
     Recipe Reading View class.
-    
+
     Handles the view's requests.
     """
 
@@ -20,7 +20,7 @@ class LecturaRecetaView(generic.TemplateView):
     def get(self, request, recipe_id):
         """
         Manage a get request.
-        
+
         Returns:
             A rendered view with the recipe template.
         """
@@ -29,8 +29,6 @@ class LecturaRecetaView(generic.TemplateView):
             recipe = models.Recipe.objects.get(id=recipe_id)
         except models.Recipe.DoesNotExist:
             return shortcuts.render(request, "display.html")
-
-
 
         view_context = {
             "recipe": recipe
@@ -71,7 +69,7 @@ class LecturaRecetaView(generic.TemplateView):
 class RecetasView(generic.TemplateView):
     """
     Recipes Display View class.
-    
+
     Handles the view's requests.
     """
 
@@ -79,7 +77,7 @@ class RecetasView(generic.TemplateView):
     def get(self, request):
         """
         Manage a get request.
-        
+
         Returns:
             A rendered view with the recipes display.
         """

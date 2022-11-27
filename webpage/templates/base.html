@@ -15,7 +15,7 @@
 <html lang="es">
 
 <head>
-  <title>{% block page_title %}{% endblock %} - Ghoti</title>
+  <title>  - Ghoti</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Escalar segun dispositivo -->
   <meta charset="UTF-8"> <!-- Usar charset UTF-8 -->
 
@@ -28,41 +28,35 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-left">
-    <a class="navbar-brand col-1" href="/">Ghoti</a>
-    <div class="navbar-links col-5" id="navbarText">
-      <ul class="navbar-nav d-flex justify-content-start">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'recipes' %}">Recetas</a>
-        </li>
+
+    <div class = "navbar-izq" id = "navbar-izq">
+    <a class="iconSupIzq" href="/">Ghoti</a>
+        <a class="button-navbarIzq" id = "button-navbarIzq"  href="/">  Home</a>
+    <div class="buttonsInIzq">
+        <a class="button-navbarIzq" id = "button-navbarIzq" href="/recipes">  Recetas</a>
         {% if request.user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'created-recipes' %}">Recetas Creadas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'saved-recipes' %}">Recetas Guardadas</a>
-        </li>
+            <a class="button-navbarIzq" href="/recipes/new">  Agregar receta</a>
+            <a class="button-navbarIzq" href="{% url 'created-recipes' %}">  Recetas Creadas</a>
+            <a class="button-navbarIzq" href="{% url 'saved-recipes' %}">  Recetas Guardadas</a>
         {% endif %}
-      </ul>
     </div>
-    <div class="navbar-buttons justify-content-end d-flex col-3 offset-3">
-      {% if request.user.is_authenticated %}
-      <span class="saludo">Hola, {{request.user.username|title}}</span>
-      {% endif %}
-      {% if request.user.is_authenticated %}
-      <a class="btn btn-success" href="/recipes/new">Agregar receta</a>
-      <a class="btn btn-danger" href="/logout">Salir</a>
-      {% else %}
-      <a class="btn btn-primary" href="/login">Ingresar</a>
-      <a class="btn btn-secondary" href="/register">Registrarse</a>
-      {% endif %}
+
     </div>
-  </nav>
-  <main class="main container">
-    {% block page_content %}{% endblock %}
+
+  <main>
+    <div class = "navbar-sup">
+
+        <div class="iconSupDer">
+          {% if request.user.is_authenticated %}
+          <p class="button-navbarSup2" >Hola, {{request.user.username|title}}</p>
+          <a class="button-navbarSup" style="padding-left: 30px" href="/logout">Salir</a>
+          {% else %}
+          <a class="button-navbarSup" style="padding-left: 17px" href="/login">Ingresar</a>
+          <a class="button-navbarSup" style="padding-left: 8px" href="/register">Registrarse</a>
+          {% endif %}
+        </div>
+    </div>
+    <div class = "main-contenido">{% block page_content %}{% endblock %}></div>
   </main>
 
   {% block scripts %}{% endblock %}

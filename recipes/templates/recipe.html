@@ -22,15 +22,14 @@
         <div class="recipe-buttons">
             {% if request.user.is_authenticated %}
             {% if not is_saved %}
-            <button class="btn btn-success" onclick="{saveRecipe(true)}">Agregar a favoritos</button>
+            <button class="notActivated" onclick="{saveRecipe(true)}">Agregar a favoritos</button>
             {% else %}
-            <button class="btn btn-danger"onclick="{saveRecipe(false)}">Quitar de favoritos</button>
+            <button class="Activated" onclick="{saveRecipe(false)}">Quitar de favoritos</button>
             {% endif %}
-            {% endif %}       
+            {% endif %}
             {% if request.user == recipe.user %}
-            <a href="{% url 'edit-recipe' recipe.id %}" class="btn btn-primary">Editar receta</a>
+            <a  href="{% url 'edit-recipe' recipe.id %}" class="notActivated" style="padding-top: 11px" >Editar receta</a>
             {% endif %}
-
         </div>
 
     </div>
