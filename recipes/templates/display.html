@@ -11,6 +11,13 @@
 <div class="title-block">
     <h3>Recetas</h3>
 </div>
+
+<div class="row justify-center text-center">
+  <form method="get">
+    <input type="text" name="search-area" value="{{search_input}}">
+    <input class="button" style="margin-left: 5px;" type="submit" value="Buscar">
+  </form>
+</div>
 <div class="recipes-block">
   {% for recipe in recipes %}
       <div class="recipe" onclick="{% url 'recipe' recipe.id %}">

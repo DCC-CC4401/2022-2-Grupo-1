@@ -8,7 +8,6 @@ import PIL
 from . import forms
 from . import models
 
-
 class LecturaRecetaView(generic.TemplateView):
     """
     Recipe Reading View class.
@@ -30,10 +29,14 @@ class LecturaRecetaView(generic.TemplateView):
         except models.Recipe.DoesNotExist:
             return shortcuts.render(request, "display.html")
 
+
+
         view_context = {
-            "recipe": recipe,
-            "is_saved": models.UserLikesRecipe.objects.filter(user=request.user, recipe=recipe).exists()
+            "recipe": recipe
         }
+
+        if request.user.is_authenticated:
+            view_context["is_saved"] = models.UserLikesRecipe.objects.filter(user=request.user, recipe=recipe).exists()
 
         return shortcuts.render(request, "recipe.html", context=view_context)
 
@@ -85,9 +88,10 @@ class RecetasView(generic.TemplateView):
         view_context = {
             "recipes": recipes_list
         }
-
+        search_input = self.request.GET.get('search-area') or ''
+        if search_input:
+            view_context['recipes'] = view_context['recipes'].filter(name__icontains=search_input)
         return shortcuts.render(request, "display.html", context=view_context)
-
 
 class RecetasCreadasView(generic.TemplateView):
     """
@@ -110,9 +114,10 @@ class RecetasCreadasView(generic.TemplateView):
         view_context = {
             "recipes": recipes_list
         }
-
+        search_input = self.request.GET.get('search-area') or ''
+        if search_input:
+            view_context['recipes'] = view_context['recipes'].filter(name__icontains=search_input)
         return shortcuts.render(request, "display.html", context=view_context)
-
 
 class RecetasGuardadasView(generic.TemplateView):
     """
@@ -132,10 +137,14 @@ class RecetasGuardadasView(generic.TemplateView):
 
         recipes_list = [x.recipe for x in models.UserLikesRecipe.objects.filter(user=request.user)]
 
+        search_input = self.request.GET.get('search-area') or ''
+        if search_input:
+            for i in recipes_list:
+                if search_input not in i.name:
+                    recipes_list.remove(i)
         view_context = {
             "recipes": recipes_list
         }
-
         return shortcuts.render(request, "display.html", context=view_context)
 
 
@@ -163,6 +172,7 @@ class NewRecipeView(generic.TemplateView):
 
         return shortcuts.render(request, "new.html", context=view_context)
 
+    # noinspection PyMethodMayBeStatic
     def post(self, request):
         """
         Manage the form submit.
@@ -180,7 +190,7 @@ class NewRecipeView(generic.TemplateView):
                 name=recipe_data["name"],
                 ingredients=recipe_data["ingredients"],
                 instructions=recipe_data["instructions"],
-                image=recipe_data["image"]
+                image = recipe_data["image"]
             )
 
             recipe.save()
@@ -223,6 +233,7 @@ class EditRecipeView(generic.TemplateView):
 
         return shortcuts.render(request, "edit.html", context=view_context)
 
+    # noinspection PyMethodMayBeStatic
     def post(self, request, recipe_id):
         """
         Manage the form submit.
@@ -236,14 +247,20 @@ class EditRecipeView(generic.TemplateView):
         if recipe_data.is_valid():
             recipe_data = recipe_data.cleaned_data
 
-            recipe.user = request.user
-            recipe.name = recipe_data["name"]
-            recipe.ingredients = recipe_data["ingredients"]
-            recipe.instructions = recipe_data["instructions"]
-            recipe.image = recipe_data["image"]
+            recipe.user=request.user
+            recipe.name=recipe_data["name"]
+            recipe.ingredients=recipe_data["ingredients"]
+            recipe.instructions=recipe_data["instructions"]
+            recipe.image=recipe_data["image"]
 
             recipe.save()
 
             return HttpResponseRedirect(f"/recipes/{recipe.id}")
 
         return HttpResponseRedirect(f"/recipes/edit/{recipe.id}")
+
+
+class SearchRecipesView(generic.ListView):
+    model = models.Recipe
+    template_name = 'search_results.html'
+    ...

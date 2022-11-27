@@ -18,7 +18,6 @@
 
 .right-block{
     float: right;
-    background: #DD33FF;
     width: 48%;
     height: 300px;
 }
@@ -27,13 +26,30 @@
     padding-left: 10px;
     padding-right: 10px;
 }
-input{
+input[type=text],textarea{
     width: 100%;
     background: rgba(227, 191, 45, 0.43);
     border-color: #282828;
+
 }
 
-.right-block .ingred{
+.right-block {
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.block .button-new{
+    margin-top: 10px;
+    background-image: linear-gradient(to right, #5A6E5A, #C05E51);
+    background-size: 1000%;
+    transition: background-position .5s ease;
+
+    color: #E0E0E0;
+    margin-bottom: 1px;
+    width: 150px;
+    height: 40px;
+}
+
+.block .button-new:hover{
+    background-position: right;
 }
