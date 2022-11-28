@@ -13,22 +13,20 @@
 </div>
 
 <div class="row justify-center text-center">
-  <form method="get">
-    <input type="text" name="search-area" value="{{search_input}}">
+  <form method="get" class="search-form">
+    <input type="text" name="search-area" class="search-input" placeholder="Ingrese aquí su búsqueda..." value="{{search_input}}">
     <input class="button" style="margin-left: 5px;" type="submit" value="Buscar">
   </form>
 </div>
 <div class="recipes-block">
   {% for recipe in recipes %}
-      <div class="recipe" onclick="{% url 'recipe' recipe.id %}">
-          <div class="recipe-image" style="background-image: url('{% if recipe.image %}{{ recipe.image.url }}{% else %}{% static 'img/default.png'%}{% endif %}')">
-          </div>
-          <a  href="{% url 'recipe' recipe.id %}">
-              <div class="recipe-info">
-                  <h1 class="recipe-name">{{ recipe.name }}</h1>
-                  <p>Por: {{ recipe.user.username }}</p>
-            </div>
-  </a></div>
+      <a class="recipe" href="{% url 'recipe' recipe.id %}">
+        <div class="recipe-image" style="background-image: url('{% if recipe.image %}{{ recipe.image.url }}{% else %}{% static 'img/default.png'%}{% endif %}')"></div>
+        <div class="recipe-info">
+            <h1 class="recipe-name">{{ recipe.name }}</h1>
+            <p>Por: {{ recipe.user.username }}</p>
+        </div>
+      </a>
 
   {% endfor %}
 </div>

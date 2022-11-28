@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block page_title %}Inicio{% endblock %}
+{% block page_title %}{{ recipe.name }}{% endblock %}
 
 {% block specific_css_files %}
 <link rel="stylesheet" href="{% static 'styles/recipe.css' %}">
@@ -28,7 +28,7 @@
             {% endif %}
             {% endif %}
             {% if request.user == recipe.user %}
-            <a  href="{% url 'edit-recipe' recipe.id %}" class="notActivated" style="padding-top: 11px" >Editar receta</a>
+            <a  href="{% url 'edit-recipe' recipe.id %}" class="notActivated" style="padding-top: 11px">Editar receta</a>
             {% endif %}
         </div>
 

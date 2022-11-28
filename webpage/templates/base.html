@@ -47,11 +47,11 @@
     <div class="navbar-sup">
         <div class="iconSupDer">
           {% if request.user.is_authenticated %}
-          <p class="button-navbarSup2" >Hola, {{request.user.username|title}}</p>
-          <a class="button-navbarSup" style="padding-left: 30px" href="/logout">Salir</a>
+          <p class="button" >Hola, {{request.user.username|title}}</p>
+          <a class="button" href="/logout">Salir</a>
           {% else %}
-          <a class="button-navbarSup" style="padding-left: 17px" href="/login">Ingresar</a>
-          <a class="button-navbarSup" style="padding-left: 8px" href="/register">Registrarse</a>
+          <a class="button" href="/login">Ingresar</a>
+          <a class="button" href="/register">Registrarse</a>
           {% endif %}
         </div>
     </div>

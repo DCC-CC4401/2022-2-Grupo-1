@@ -25,11 +25,12 @@
     color: #F5C265;
 }
 
-.iconSupDer{
+.iconSupDer {
     height: 100%;
     right: 0;
-    padding-top: 15px;
-    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
 }
 
 .button-navbarSup{

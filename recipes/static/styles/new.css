@@ -3,7 +3,7 @@
 }
 
 .Title-new h3{
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 .block{
@@ -23,8 +23,8 @@
 }
 
 .left-block .name{
-    padding-left: 10px;
     padding-right: 10px;
+    margin-bottom: 20px;
 }
 input[type=text],textarea{
     width: 100%;
@@ -38,18 +38,18 @@ input[type=text],textarea{
     padding-right: 10px;
 }
 
-.block .button-new{
+.block .button{
     margin-top: 10px;
-    background-image: linear-gradient(to right, #5A6E5A, #C05E51);
-    background-size: 1000%;
-    transition: background-position .5s ease;
+    background: #C05E51;
+    transition: all .5s ease;
 
     color: #E0E0E0;
     margin-bottom: 1px;
-    width: 150px;
-    height: 40px;
+    margin-top: 20px;
 }
 
-.block .button-new:hover{
+.block .button:hover{
+    color: #5A6E5A;
+    background: #E0E0E0;
     background-position: right;
 }

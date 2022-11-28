@@ -18,42 +18,33 @@
     flex-direction: column;
 }
 
-.recipe-buttons .notActivated {
+.recipe-buttons button,
+.recipe-buttons a {
     border-radius: 10px;
     width: 200px;
     height: 50px;
     color: #D8D5C4;
     margin: .5vw 0;
     text-align: center;
-    text-decoration-color: rgba(0,0,0,0);
+    text-decoration: none;
+    transition: all .5s ease;
+}
 
-    background-image: linear-gradient(to right, #5A6E5A, #D8D5C4);
-    background-size: 1000%;
-    transition: background-position .5s ease;
-    border-bottom: #06253b;
+.recipe-buttons .notActivated {
+    background: #5A6E5A;
+    transition: all .5s ease;
 }
 
 .recipe-buttons .notActivated:hover{
-    background-position: right;
+    background: #D8D5C4;
     color: #5A6E5A !important;
 }
 
 .recipe-buttons .Activated {
-    border-radius: 10px;
-    width: 200px;
-    height: 50px;
-    color: #D8D5C4;
-    margin: .5vw 0;
-    text-align: left;
-    text-decoration-color: rgba(0,0,0,0);
-
-    background-image: linear-gradient(to right, #C05E51, #D8D5C4);
-    background-size: 1000%;
-    transition: background-position .5s ease;
-    border-bottom: #06253b;
+    background: #C05E51;
 }
 
 .recipe-buttons .Activated:hover{
-    background-position: right;
+    background: #D8D5C4;
     color: #5A6E5A !important;
 }

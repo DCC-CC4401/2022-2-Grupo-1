@@ -8,15 +8,15 @@
         <a class="init" href="/">Ghoti</a>
     </div>
     <div class="bloqueRegLog">
-        <h1  style="text-align: center">Inicio de sesión</h1>
+        <h1>Inicio de sesión</h1>
         <form method="post">
           {% csrf_token %}
           <label>{{form.label}}</label>
+          <p>Usuario:</p>
           {{form.username}}
-            <p>Usuario:</p>
           <label>{{form.label}}</label>
+          <p>Contraseña:</p>
           {{form.password}}
-            <p>Contraseña:</p>
           <br>
             <div class="ingresar"><input class="button" type="submit" value="Login"></div>
         </form>

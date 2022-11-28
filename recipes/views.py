@@ -61,8 +61,9 @@ class LecturaRecetaView(generic.TemplateView):
             like.save()
         else:
             # noinspection PyUnresolvedReferences
-            like = models.UserLikesRecipe.objects.get(user=request.user, recipe=recipe)
-            like.delete()
+            like = models.UserLikesRecipe.objects.filter(user=request.user, recipe=recipe)
+            if like.exists():
+                like.first().delete()
 
         try:
             recipe = models.Recipe.objects.get(id=recipe_id)
@@ -175,6 +176,8 @@ class NewRecipeView(generic.TemplateView):
         """
 
         recipe_form = forms.NewRecipeForm()
+        if not request.user.is_authenticated:
+            return HttpResponseRedirect(f"/recipes/")
 
         view_context = {
             "form": recipe_form
@@ -261,7 +264,8 @@ class EditRecipeView(generic.TemplateView):
             recipe.name = recipe_data["name"]
             recipe.ingredients = recipe_data["ingredients"]
             recipe.instructions = recipe_data["instructions"]
-            recipe.image = recipe_data["image"]
+            if not recipe_data["image"] is None:
+                recipe.image = recipe_data["image"]
 
             recipe.save()
 
