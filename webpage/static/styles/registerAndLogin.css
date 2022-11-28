@@ -103,6 +103,20 @@ body{
     position: relative;
 }
 
+.wrapper {
+  display: inline-block;
+  flex-direction:row;
+  margin-top: 50px;
+  margin-right: 100px;
+ }
+
+ .wrapperLog {
+   display: inline-block;
+   flex-direction:row;
+   margin-top: 60px;
+   margin-right: 100px;
+  }
+
 
 /* LOGIN */
 
