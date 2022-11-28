@@ -104,18 +104,18 @@ body{
 }
 
 .wrapper {
-  display: inline-block;
-  flex-direction:row;
-  margin-top: 50px;
-  margin-right: 100px;
- }
+    display: inline-block;
+    flex-direction: row;
+    margin-top: 50px;
+    margin-right: 90px;
+}
 
  .wrapperLog {
-   display: inline-block;
-   flex-direction:row;
-   margin-top: 60px;
-   margin-right: 100px;
-  }
+     display: inline-block;
+     flex-direction: row;
+     margin-top: 70px;
+     margin-right: 90px;
+ }
 
 
 /* LOGIN */
