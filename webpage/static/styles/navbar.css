@@ -101,25 +101,19 @@
 
 .button-navbarIzq{
     font-size: 1.3rem;
-    font-weight: bold;
-    text-decoration-color: rgba(0,0,0,0);
-
-    background-image: linear-gradient(to right, #5A6E5A, #D8D5C4);
-    background-size: 1000%;
-    transition: background-position .5s ease;
-
+    font-weight: 400;
+    text-decoration: none;
+    
     color: #E0E0E0;
-    margin-bottom: 1px;
-    padding-top: 20px;
+    padding: 20px 20px;
     width: 250px;
-    height: 80px;
-
+    
     float: left;
-    border-bottom: #06253b;
+    transition: all .5s ease;
 }
 
 .button-navbarIzq:hover{
-    background-position: right;
+    background: #D8D5C4;
     color: #5A6E5A !important;
 }
 
