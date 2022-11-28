@@ -28,14 +28,24 @@
 }
 input[type=text],textarea{
     width: 100%;
-    background: rgba(227, 191, 45, 0.43);
-    border-color: #282828;
-
+    background: #5A6E5A;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    height: 20%;
+    color: #D8D5C4;
+    padding: 0 20px;
+    display: inline-block;
 }
 
 .right-block {
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.right-block textarea{
+    height: 90%;
+    place-content: ;
 }
 
 .block .button{
@@ -45,7 +55,6 @@ input[type=text],textarea{
 
     color: #E0E0E0;
     margin-bottom: 1px;
-    margin-top: 20px;
 }
 
 .block .button:hover{
