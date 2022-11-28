@@ -1,3 +1,5 @@
+import abc
+
 import django.views.generic.base
 from django import shortcuts
 from django.http import HttpResponseRedirect
@@ -7,9 +9,19 @@ from . import forms
 from . import models
 
 
-class Buscador(django.views.generic.base.View):
+class Buscador(django.views.generic.base.View, abc.ABC):
+    """
+    Abstract class that provides a class the functionality of search a word using the search bar.
+    """
 
     def filter_search(self, view_context, filter_name='recipes'):
+        """
+        Filter the view_context given the name of the filtered value.
+
+        :param view_context: A dictionary that works as context.
+        :param filter_name: A name that works as a key of the view context.
+        :return: the view_context filtered.
+        """
         search_input = self.request.GET.get('search-area') or ''
         if search_input:
             view_context[filter_name] = view_context[filter_name].filter(name__icontains=search_input)
